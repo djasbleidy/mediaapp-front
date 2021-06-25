@@ -1,0 +1,7 @@
+<h2 class="title"> usuario : {{ usuario }}</h2>
+<h4>Rol : </h4>
+<ul>
+  <li *ngFor="let usuario of lista; let i =index;">
+   {{usuario.descripcion}}
+  </li>
+</ul>
