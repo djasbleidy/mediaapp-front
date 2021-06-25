@@ -61,8 +61,6 @@ export class SignosEdicionComponent implements OnInit {
     signo.temperatura = this.form.value['temperatura'];
 
   if (this.edicion) {
-      //MODIFICAR
-      //PRACTICA COMUN
       this.signosService.modificar(signo).subscribe(() => {
         this.signosService.listar().subscribe(data => {
           this.signosService.setSignoCambio(data);
@@ -72,8 +70,6 @@ export class SignosEdicionComponent implements OnInit {
     }
 
     else {
-      //REGISTRAR
-      //PRACTICA IDEAL
       this.signosService.registrar(signo).pipe(switchMap(() => {
         return this.signosService.listar();
       })).subscribe(data => {
@@ -82,7 +78,7 @@ export class SignosEdicionComponent implements OnInit {
       });
     }
 
-    this.router.navigate(['signos']);
+    this.router.navigate(['/pages/signos']);
 
   }
   listarPacientes() {
@@ -98,8 +94,6 @@ export class SignosEdicionComponent implements OnInit {
   initForm() {
     if (this.edicion) {
       this.signosService.listarPorId(this.id).subscribe(data => {
-        this.pacienteSeleccionado = data.paciente;
-        console.log(this.pacienteSeleccionado)
         this.form = new FormGroup({
           'idSigno': new FormControl(data.idSigno),
           'paciente': new FormControl(data.paciente),

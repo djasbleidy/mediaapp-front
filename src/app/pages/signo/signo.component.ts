@@ -15,7 +15,7 @@ import { PacienteService } from 'src/app/_service/paciente.service';
 })
 export class SignoComponent implements OnInit {
 
-  displayedColumns = ['idSigno', 'pulso', 'ritmo', 'acciones'];
+  displayedColumns = ['idSigno', 'paciente',  'pulso', 'ritmo', 'acciones'];
   dataSource: MatTableDataSource<Signos>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

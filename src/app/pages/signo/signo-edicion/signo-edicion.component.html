@@ -8,13 +8,14 @@
   </div>
 
   <mat-form-field>
-    <mat-select placeholder="Paciente" [(ngModel)]="pacienteSeleccionado" formControlName="paciente"
+    <mat-select placeholder="Paciente" [(value)]="pacienteSeleccionado" formControlName="paciente"
         (selectionChange)="seleccionarPaciente($event)">
-        <mat-option *ngFor="let p of pacientes" [value]="p.idPaciente" >
+        <mat-option *ngFor="let p of pacientes" [value]="p" >
             {{p.nombres}} {{p.apellidos}}
         </mat-option>
     </mat-select>
 </mat-form-field>
+
 
 <mat-form-field>
   <input matInput [matDatepicker]="picker" placeholder="Escoge una fecha" [max]="maxFecha"
@@ -39,7 +40,7 @@
       <mat-icon>done</mat-icon>
       <span>Aceptar</span>
   </button>
-  <button mat-raised-button color="accent" routerLink='/signos' type="button">
+  <button mat-raised-button color="accent" routerLink='/pages/signos' type="button">
       <mat-icon>close</mat-icon>
       <span>Cancelar</span>
   </button>
